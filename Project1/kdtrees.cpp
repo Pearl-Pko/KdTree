@@ -85,7 +85,7 @@ KdNode<T...>* KdTree<T...>::remove(KdNode<T...>* node, const std::tuple<T...>& e
             return left_child;
         }
         else {
-            auto *rightmost_child = get_inorder_predecesssor(node);
+            auto *rightmost_child = get_inorder_predecessor(node);
             auto *left_child = node->left;
             rightmost_child->right = node->right;
 
@@ -102,7 +102,7 @@ KdNode<T...>* KdTree<T...>::remove(KdNode<T...>* node, const std::tuple<T...>& e
 }
 
 template<typename... T>
-KdNode<T...> *get_inorder_predecesssor(KdNode<T...> *node) {
+KdNode<T...> *get_inorder_predecessor(KdNode<T...> *node) {
     node = node->left;
     while (node->right) node = node->right;
     return node;
